@@ -1,0 +1,47 @@
+[
+    {
+    "name": "Airpods",
+    "price": "25000",
+    "description": "Spatial Audio is the key feature of this product.",
+    "ratings": 5,
+    "images": [{
+        "public_id": "r3erfervyg3845gfuehf",
+        "url": "http://google.com/images"
+    }],
+    "category": "Electronics",
+    "seller": "iAspire",
+    "stock": 100,
+    "review": [],
+    "numofreviews": 10
+    },
+    {
+        "name": "Apple Watch Series 7",
+        "price": "49000",
+        "description": "The world's best smartwatch.",
+        "ratings": 5,
+        "images": [{
+            "public_id": "r3erfervyg3845gfuehf",
+            "url": "http://google.com/images"
+        }],
+        "category": "Electronics",
+        "seller": "iAspire",
+        "stock": 100,
+        "review": [],
+        "numofreviews": 10
+        },
+        {
+            "name": "iPhone 13 Mini Bright Red",
+            "price": "69990",
+            "description": "The world's most compact flagship smartphone.",
+            "ratings": 5,
+            "images": [{
+                "public_id": "r3erfervyg3845gfuehf",
+                "url": "http://google.com/images"
+            }],
+            "category": "Electronics",
+            "seller": "iAspire",
+            "stock": 100,
+            "review": [],
+            "numofreviews": 10
+            }
+        ]
