@@ -11,8 +11,7 @@ This complete project is built along with a [MERN Course](https://www.udemy.com/
     * User Authorization API using JWT tokens.
 
 ## Portions Ongoing 
-    * Search And Filter
+    * Payment Interface using Stripe
 
 ## Portions Remaining
-    * Integrating Stripe to handle payments.
-    * User Authentication Frontend.
+    * Admin Dashboard
