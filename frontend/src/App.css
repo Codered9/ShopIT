@@ -614,3 +614,11 @@ ul.CTAs a {
   font-size: 0.8rem;
   color: grey;
 }
+
+.emptyCart {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    height:70vh;  
+}
+

@@ -8,13 +8,14 @@ const crypto = require('crypto')
 const cloudinary = require('cloudinary')
 // Register a user => /api/v1/register
 exports.registerUser = catchAsyncErrors( async (req, res, next) => {
+    
     const result = await cloudinary.v2.uploader.upload(req.body.avatar, {
         folder: 'avatars',
         width: 150,
         crop: 'scale'
     })
-    const {name, email, password} = req.body;
 
+    const {name, email, password} = req.body;
     const user = await User.create({
         name,
         email,
@@ -81,7 +82,7 @@ exports.forgotPassword = catchAsyncErrors(async (req,res,next) => {
     await user.save({validateBeforeSave: false});
 
     // Create reset password url
-    const resetUrl = `${req.protocol}//${req.get('host')}/api/v1/password/reset/${resetToken}`;
+    const resetUrl = `${process.env.FRONTEND_URL}/password/reset/${resetToken}`;
 
     const message = `Your password reset token is as follows:\n\n${resetUrl}\n\nIf you didn't requested this mail then please ignore it.`
 
@@ -154,7 +155,7 @@ exports.updatePassword = catchAsyncErrors( async (req, res, next) => {
         return next(new ErrorHandler('Old Password is incorrect.', 400))
     }
 
-    user.password = req.body.password;
+    user.password = req.body.newPassword;
     await user.save();
 
     sendToken(user, 200, res);
@@ -167,7 +168,23 @@ exports.updateProfile = catchAsyncErrors( async (req, res, next) => {
         email: req.body.email
     }
 
-    // Update avatar TODO
+    // Update avatar 
+    if(req.body.avatar !== ''){
+        const user = await User.findById(req.user.id);
+        const image_id = user.avatar.public_id;
+        const res = await cloudinary.v2.uploader.destroy(image_id);
+    }
+
+    const result = await cloudinary.v2.uploader.upload(req.body.avatar, {
+        folder: 'avatars',
+        width: 150,
+        crop: 'scale'
+    })
+
+    newUserData.avatar = {
+        public_id : result.public_id,
+        url : result.secure_url
+    }
 
     const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
         new: true,
