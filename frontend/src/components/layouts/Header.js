@@ -49,11 +49,10 @@ const Header = () => {
                     </figure>
                   </button>
                   <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    {user && user.role !== 'admin' ? (
-                      <li><Link className="dropdown-item" to="/orders/me">Orders</Link></li>
-                      ): (
-                        <li><Link className="dropdown-item" to="/dashboard">Dashboard</Link></li>
-                        )}
+                    {user && user.role === 'admin' && (
+                      <li><Link className="dropdown-item" to="/dashboard">Dashboard</Link></li>
+                      )}
+                        <li><Link className="dropdown-item" to="/orders/me">Orders</Link></li>
                         <li><Link className="dropdown-item" to="/me">Profile</Link></li>
                         <li><Link className="dropdown-item text-danger" to="/" onClick={logoutUserHandler}>Logout</Link></li>
                   </ul>

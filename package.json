@@ -7,7 +7,8 @@
     "start": "node backend/server.js",
     "dev": "export NODE_ENV=DEVELOPMENT && nodemon backend/server",
     "prod": "export NODE_ENV=PRODUCTION && nodemon backend/server",
-    "seeder": "node backend/utils/seeder.js"
+    "seeder": "node backend/utils/seeder.js",
+    "heroku-postbuild" : "NPM_CONFIG_PRODUCTION=false && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "author": "Sudhanshu Srivastava",
   "license": "ISC",
@@ -22,6 +23,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.1.3",
     "nodemailer": "^6.7.2",
+    "stripe": "^8.199.0",
     "validator": "^13.7.0"
   },
   "devDependencies": {

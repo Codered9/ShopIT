@@ -7,6 +7,7 @@ const Cart = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { cartItems } = useSelector(state => state.cart)
+    console.log(cartItems)
     const increaseQty = (id, quantity, stock) => {
         const newQty = quantity + 1;
         if(newQty > stock) return;
